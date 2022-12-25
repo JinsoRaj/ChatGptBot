@@ -1,0 +1,26 @@
+{
+  "name": "chatgptbot",
+  "version": "1.0.0",
+  "description": "nodejs - vps",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JinsoRaj/ChatGptBot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JinsoRaj/ChatGptBot/issues"
+  },
+  "homepage": "https://github.com/JinsoRaj/ChatGptBot#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "grammy": "^1.12.1",
+    "openai": "^3.1.0"
+  }
+}

@@ -8,7 +8,7 @@ import * as dotenv from 'dotenv'
 dotenv.config();
 
 
-const bot = new Bot(process.env.BOT_TOKEN);
+export const bot = new Bot(process.env.BOT_TOKEN);
 const ADMIN_ID = process.env.ADMIN_ID;
 
 // Handle start command

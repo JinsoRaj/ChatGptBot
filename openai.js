@@ -21,6 +21,7 @@ export async function getAIResponse(input){
         frequency_penalty: 0.5,
         presence_penalty: 0,
     });
-    return completion.data.choices[0].text;
+    const response = completion.data.choices[0].text;
+    return  response.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
 }
 

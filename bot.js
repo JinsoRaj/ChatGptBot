@@ -26,7 +26,7 @@ bot.on('message:text', async(ctx) =>{
         // skip first word
         const aiResponse = await getAIResponse(input.substr(input.indexOf(" ") + 1));
         // split output to 4096 chars
-        const responseArray = aiResponse.match(/.{1,4096}(?:\s|$)/g)
+        const responseArray = aiResponse.match(/.{1,4096}(?:\s|$)/gs)
         for (const output in responseArray) {
             await bot.api.sendMessage(ctx.message.chat.id,`<code>${responseArray[output]}</code>`,{
                 parse_mode: "HTML",
@@ -38,7 +38,7 @@ bot.on('message:text', async(ctx) =>{
 
         const aiResponse = await getAIResponse(input);
         // split output to 4096 chars
-        const responseArray = aiResponse.match(/.{1,4096}(?:\s|$)/g)
+        const responseArray = aiResponse.match(/.{1,4096}(?:\s|$)/gs)
         for (const output in responseArray) {
             await bot.api.sendMessage(ctx.message.chat.id,`<code>${responseArray[output]}</code>`,{
                 parse_mode: "HTML",

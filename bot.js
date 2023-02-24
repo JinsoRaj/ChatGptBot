@@ -9,7 +9,7 @@ dotenv.config();
 
 
 export const bot = new Bot(process.env.BOT_TOKEN);
-const ADMIN_ID = process.env.ADMIN_ID;
+const ADMINS = process.env.ADMIN_ID.split(' ');
 
 // Handle start command
 bot.command("start", async (ctx) => {
@@ -34,7 +34,7 @@ bot.on('message:text', async(ctx) =>{
             })
         }
 
-    }else if(ctx.chat.type == "private" && ctx.chat.id == ADMIN_ID){
+    }else if(ctx.chat.type == "private" && ADMINS.includes(ctx.chat.id.toString()) ){
 
         const aiResponse = await getAIResponse(input);
         // split output to 4096 chars
@@ -55,7 +55,7 @@ bot.catch((err) => {
     const e = err.error;
     if (e instanceof GrammyError) {
       console.error("Error in request:", e.description);
-      bot.api.sendMessage(ADMIN_ID,`Error in request: ${e.description}`)
+      bot.api.sendMessage(1004813228,`Error in request: ${e.description}`)
     } else if (e instanceof HttpError) {
       console.error("Could not contact Telegram:", e);
     } else {
